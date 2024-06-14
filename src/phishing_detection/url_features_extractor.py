@@ -1,14 +1,11 @@
 import whois
 
-from src.phishing_detection.checker.Ip_address_checker import check_ip_adderss
-from src.phishing_detection.checker.date_checker import check_creation_date, check_expiration_date
-from src.phishing_detection.checker.port_open_checker import check_non_standard_ports
-from src.phishing_detection.checker.url_checker import check_https_token, check_at_symbol, check_url_length
-
-from src.phishing_detection.checker.redirection_count_checker import check_redirection_count
-from src.phishing_detection.checker.right_click_checker import check_right_click_disabled
-from src.phishing_detection.checker.shortening_checker import check_shortening
-from src.phishing_detection.checker.ssl_certificate_checker import check_ssl_certificate, check_SSLfinal_state
+from src.phishing_detection.checker.date_url import check_creation_date, check_expiration_date
+from src.phishing_detection.checker.check_url import check_https_token, check_at_symbol, check_url_length, \
+    check_ip_adderss
+from src.phishing_detection.checker.request_url import check_redirection_count, check_right_click_disabled, \
+    check_shortening
+from src.phishing_detection.checker.socket_url import check_SSLfinal_state, check_non_standard_ports
 
 
 def extract_url_features(url):

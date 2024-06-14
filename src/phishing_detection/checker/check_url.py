@@ -1,12 +1,21 @@
+import re
+
+
+def check_ip_adderss(url):
+    ip_pattern = r'\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b'
+    if re.search(ip_pattern, url):
+        return 1
+    else:
+        return -1
+
+
 def check_https_token(url):
-    # URL에서 도메인 부분 추출
-    domain_start = url.find('://') + 3  # "://" 이후부터 체크
-    domain_end = url.find('/', domain_start)  # 다음 슬래시("/") 전까지
-    if domain_end == -1:  # 슬래시가 없는 경우
+    domain_start = url.find('://') + 3
+    domain_end = url.find('/', domain_start)
+    if domain_end == -1:
         domain_end = len(url)
     domain = url[domain_start:domain_end]
 
-    # 도메인 부분에 "https" 토큰의 존재 여부 확인
     if "https" in domain:
         return 1
     else:
